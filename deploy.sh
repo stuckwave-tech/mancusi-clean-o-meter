@@ -27,6 +27,15 @@ cp -r "$SOURCE/styles"/* "$TARGET/styles/" 2>/dev/null || (mkdir -p "$TARGET/sty
 echo "🖼️  Kopiere Assets..."
 cp -r "$SOURCE/public"/* "$TARGET/public/" 2>/dev/null || (mkdir -p "$TARGET/public" && cp -r "$SOURCE/public"/* "$TARGET/public/")
 
+# Kopiere Admin Bereich
+echo "🔐 Kopiere Admin..."
+mkdir -p "$TARGET/admin"
+cp -r "$SOURCE/admin"/* "$TARGET/admin/" 2>/dev/null
+
+# Erstelle data Verzeichnis für Admin
+mkdir -p "$TARGET/data"
+chmod 755 "$TARGET/data"
+
 echo ""
 echo "✅ Deployment abgeschlossen!"
 echo "🌐 Live: https://mancusi.visiodronix.de"
